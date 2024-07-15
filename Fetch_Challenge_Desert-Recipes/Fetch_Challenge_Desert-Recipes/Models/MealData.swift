@@ -2,19 +2,23 @@
 //  MealData.swift
 //  Fetch_Challenge_Desert-Recipes
 //
-//  Created by admin on 7/9/24.
+//  Created by Yan Brunshteyn on 7/9/24.
 //
 
 import Foundation
 
 struct MealsList: Codable {
-    var meals: [Meals]?
+    var meals: [MenuMeals]?
 }
 
-struct Meals: Codable {
+struct MenuMeals: Codable {
     var idMeal: String
     var strMeal: String
     var strMealThumb: String
+}
+
+struct MealsDetail: Codable {
+    var meals: [Meal]?
 }
 
 struct Meal: Codable {
@@ -61,4 +65,52 @@ struct Meal: Codable {
     var strMeasure18: String?
     var strMeasure19: String?
     var strMeasure20: String?
+    
+    func allProperties() -> [String:String] {
+        return [
+            "idMeal": idMeal,
+            "strMeal": strMeal,
+            "strInstructions": strInstructions,
+            "strIngredient1": strIngredient1 ?? "",
+            "strIngredient2": strIngredient2 ?? "",
+            "strIngredient3": strIngredient3 ?? "",
+            "strIngredient4": strIngredient4 ?? "",
+            "strIngredient5": strIngredient5 ?? "",
+            "strIngredient6": strIngredient6 ?? "",
+            "strIngredient7": strIngredient7 ?? "",
+            "strIngredient8": strIngredient8 ?? "",
+            "strIngredient9": strIngredient9 ?? "",
+            "strIngredient10": strIngredient10 ?? "",
+            "strIngredient11": strIngredient11 ?? "",
+            "strIngredient12": strIngredient12 ?? "",
+            "strIngredient13": strIngredient13 ?? "",
+            "strIngredient14": strIngredient14 ?? "",
+            "strIngredient15": strIngredient15 ?? "",
+            "strIngredient16": strIngredient16 ?? "",
+            "strIngredient17": strIngredient17 ?? "",
+            "strIngredient18": strIngredient18 ?? "",
+            "strIngredient19": strIngredient19 ?? "",
+            "strIngredient20": strIngredient20 ?? "",
+            "strMeasure1": strMeasure1 ?? "",
+            "strMeasure2": strMeasure2 ?? "",
+            "strMeasure3": strMeasure3 ?? "",
+            "strMeasure4": strMeasure4 ?? "",
+            "strMeasure5": strMeasure5 ?? "",
+            "strMeasure6": strMeasure6 ?? "",
+            "strMeasure7": strMeasure7 ?? "",
+            "strMeasure8": strMeasure8 ?? "",
+            "strMeasure9": strMeasure9 ?? "",
+            "strMeasure10": strMeasure10 ?? "",
+            "strMeasure11": strMeasure11 ?? "",
+            "strMeasure12": strMeasure12 ?? "",
+            "strMeasure13": strMeasure13 ?? "",
+            "strMeasure14": strMeasure14 ?? "",
+            "strMeasure15": strMeasure15 ?? "",
+            "strMeasure16": strMeasure16 ?? "",
+            "strMeasure17": strMeasure17 ?? "",
+            "strMeasure18": strMeasure18 ?? "",
+            "strMeasure19": strMeasure19 ?? "",
+            "strMeasure20": strMeasure20 ?? "",
+        ]
+    }
 }

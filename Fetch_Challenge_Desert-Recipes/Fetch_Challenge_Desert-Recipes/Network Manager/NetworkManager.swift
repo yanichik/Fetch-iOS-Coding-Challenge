@@ -2,67 +2,104 @@
 //  NetworkManager.swift
 //  Fetch_Challenge_Desert-Recipes
 //
-//  Created by admin on 7/9/24.
+//  Created by Yan Brunshteyn on 7/9/24.
 //
 
 import Foundation
-
-enum FetchError: String, Error {
-    case invalidURL = "This is an invalid URL. Please try again."
-    case invalidResponse = "Invalid response from server. Please try again."
-    case invalidData = "Received blank data. Please try again."
-    case parseError = "Getting parse error. Please try again."
-}
-
 
 class NetworkManager {
     static let shared = NetworkManager()
     
     private init() {}
     
-    let baseURLString = "https://themealdb.com/api/json/v1/1/filter.php"
+    let baseMealsURLString = "https://themealdb.com/api/json/v1/1/filter.php"
+    let baseQueryMealURLString = "https://themealdb.com/api/json/v1/1/lookup.php"
     let queryDessertMeals = "?c=Dessert"
     let queryMealDetails = "?i="
     
-    func getRequest(url: URL, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) {
-        let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
-            completionHandler(data, response, error)
-        }
-        task.resume()
+    func getRequest(url: URL) async throws -> (Data?, HTTPURLResponse?) {
+        let (data, response) = try await URLSession.shared.data(from: url)
+        return (data, response as? HTTPURLResponse)
     }
     
-    func parseJSON<T: Codable>(data: Data, type: T.Type, completion: (T?) -> Void) -> Void {
+    func parseJSON<T: Codable>(data: Data, type: T.Type) async -> Result<T, FetchError> {
         let decoder = JSONDecoder()
         do {
             let responseData = try decoder.decode(type.self, from: data)
-            completion(responseData)
+            return .success(responseData)
         } catch {
-            completion(nil)
+            return .failure(.parseError)
         }
     }
     
-    func getDessertMealsList(completion: @escaping (Result<MealsList, FetchError>) -> Void) -> Void {
-        guard let url = URL(string: baseURLString + queryDessertMeals) else {
-            completion(.failure(.invalidURL))
-            return
+    func getDessertMealsList() async throws -> Result<[MenuMeals], FetchError> {
+        guard let url = URL(string: baseMealsURLString + queryDessertMeals) else {
+            throw FetchError.invalidURL
         }
-        getRequest(url: url) { (data, response, error) in
-            if error != nil {
-                completion(.failure(.invalidResponse))
-            } else {
-                do {
-                    guard let d = data else {
-                        completion(.failure(.invalidData))
-                        return
-                    }
-                    self.parseJSON(data: d, type: MealsList.self) { meals in
-                        if let desertMealsList = meals {
-                            completion(.success(desertMealsList))
-                        } else {
-                            completion(.failure(.parseError))
-                        }
-                    }
-                }
+        let (data, response) = try await getRequest(url: url)
+        if let statusCode = response?.statusCode {
+            print("statusCode: \(statusCode)")
+            if !(200...299).contains(statusCode) {
+                return .failure(.invalidResponse(statusCode: statusCode))
+            }
+        }
+        guard let d = data else {
+            throw FetchError.invalidData (reason: "Returned blank data field in server response.")
+        }
+        let parseResult = await parseJSON(data: d, type: MealsList.self)
+        switch parseResult {
+        case .success(let parsed):
+            guard let meals = parsed.meals else {
+                return .failure(.invalidData (reason: "Returned nil data when parsing JSON."))
+            }
+            return .success(meals)
+        case .failure(let error):
+            return .failure(error)
+        }
+    }
+    
+    func getMeal(mealStr: String) async throws -> Result<Meal, FetchError> {
+        guard let url = URL(string: baseQueryMealURLString + queryMealDetails + mealStr) else {
+            throw FetchError.invalidURL
+        }
+        let (data, response) = try await getRequest(url: url)
+        if let statusCode = response?.statusCode {
+            print("statusCode: \(statusCode)")
+            if !(200...299).contains(statusCode) {
+                return .failure(.invalidResponse(statusCode: statusCode))
+            }
+        }
+        guard let d = data else {
+            throw FetchError.invalidData (reason: "Returned blank data field in server response.")
+        }
+        let parseResult = await parseJSON(data: d, type: MealsDetail.self)
+        switch parseResult {
+        case .success(let parsed):
+            guard let meal = parsed.meals?[0] else {
+                return .failure(.invalidData (reason: "Returned nil data when parsing JSON."))
+            }
+            return .success(meal)
+        case .failure(let error):
+            return .failure(error)
+        }
+    }
+    
+    enum FetchError: Error {
+        case invalidURL
+        case invalidResponse (statusCode: Int)
+        case invalidData (reason: String)
+        case parseError
+        
+        var localizedDescription: String {
+            switch self {
+            case .invalidURL:
+                return "This is an invalid URL. Please try again."
+            case .invalidResponse(let statusCode):
+                return "Invalid server response with statusCode \"\(statusCode)\". Please try again."
+            case .invalidData (let reason):
+                return "\(reason) Please try again."
+            case .parseError:
+                return "Getting parse error. Please try again."
             }
         }
     }
