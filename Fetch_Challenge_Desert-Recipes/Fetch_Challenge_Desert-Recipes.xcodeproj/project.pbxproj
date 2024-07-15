@@ -12,16 +12,14 @@
 		8455D1792C4335810069BDF9 /* DetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8455D1782C4335810069BDF9 /* DetailVC.swift */; };
 		8455D17E2C4343F20069BDF9 /* MenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8455D17D2C4343F20069BDF9 /* MenuViewModel.swift */; };
 		8455D1802C4348AE0069BDF9 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8455D17F2C4348AE0069BDF9 /* DetailViewModel.swift */; };
+		846B679A2C459D2E00AAA0D9 /* MenuItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846B67992C459D2E00AAA0D9 /* MenuItemCell.swift */; };
+		846B679C2C459E3D00AAA0D9 /* MenuItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846B679B2C459E3D00AAA0D9 /* MenuItemModel.swift */; };
 		8473AE242C3D970C00ABD2D7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8473AE232C3D970C00ABD2D7 /* AppDelegate.swift */; };
 		8473AE262C3D970C00ABD2D7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8473AE252C3D970C00ABD2D7 /* SceneDelegate.swift */; };
 		8473AE282C3D970C00ABD2D7 /* MenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8473AE272C3D970C00ABD2D7 /* MenuVC.swift */; };
 		8473AE2B2C3D970C00ABD2D7 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 8473AE2A2C3D970C00ABD2D7 /* Base */; };
-		8473AE2E2C3D970C00ABD2D7 /* Fetch_Challenge_Desert_Recipes.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8473AE2C2C3D970C00ABD2D7 /* Fetch_Challenge_Desert_Recipes.xcdatamodeld */; };
 		8473AE302C3D970E00ABD2D7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8473AE2F2C3D970E00ABD2D7 /* Assets.xcassets */; };
 		8473AE332C3D970E00ABD2D7 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 8473AE322C3D970E00ABD2D7 /* Base */; };
-		8473AE3E2C3D970E00ABD2D7 /* Fetch_Challenge_Desert_RecipesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8473AE3D2C3D970E00ABD2D7 /* Fetch_Challenge_Desert_RecipesTests.swift */; };
-		8473AE482C3D970E00ABD2D7 /* Fetch_Challenge_Desert_RecipesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8473AE472C3D970E00ABD2D7 /* Fetch_Challenge_Desert_RecipesUITests.swift */; };
-		8473AE4A2C3D970E00ABD2D7 /* Fetch_Challenge_Desert_RecipesUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8473AE492C3D970E00ABD2D7 /* Fetch_Challenge_Desert_RecipesUITestsLaunchTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,20 +45,18 @@
 		8455D1782C4335810069BDF9 /* DetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVC.swift; sourceTree = "<group>"; };
 		8455D17D2C4343F20069BDF9 /* MenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewModel.swift; sourceTree = "<group>"; };
 		8455D17F2C4348AE0069BDF9 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
+		846B67992C459D2E00AAA0D9 /* MenuItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemCell.swift; sourceTree = "<group>"; };
+		846B679B2C459E3D00AAA0D9 /* MenuItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemModel.swift; sourceTree = "<group>"; };
 		8473AE202C3D970C00ABD2D7 /* Fetch_Challenge_Desert-Recipes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Fetch_Challenge_Desert-Recipes.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8473AE232C3D970C00ABD2D7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8473AE252C3D970C00ABD2D7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		8473AE272C3D970C00ABD2D7 /* MenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuVC.swift; sourceTree = "<group>"; };
 		8473AE2A2C3D970C00ABD2D7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		8473AE2D2C3D970C00ABD2D7 /* Fetch_Challenge_Desert_Recipes.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Fetch_Challenge_Desert_Recipes.xcdatamodel; sourceTree = "<group>"; };
 		8473AE2F2C3D970E00ABD2D7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8473AE322C3D970E00ABD2D7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8473AE342C3D970E00ABD2D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8473AE392C3D970E00ABD2D7 /* Fetch_Challenge_Desert-RecipesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Fetch_Challenge_Desert-RecipesTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		8473AE3D2C3D970E00ABD2D7 /* Fetch_Challenge_Desert_RecipesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fetch_Challenge_Desert_RecipesTests.swift; sourceTree = "<group>"; };
 		8473AE432C3D970E00ABD2D7 /* Fetch_Challenge_Desert-RecipesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Fetch_Challenge_Desert-RecipesUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		8473AE472C3D970E00ABD2D7 /* Fetch_Challenge_Desert_RecipesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fetch_Challenge_Desert_RecipesUITests.swift; sourceTree = "<group>"; };
-		8473AE492C3D970E00ABD2D7 /* Fetch_Challenge_Desert_RecipesUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fetch_Challenge_Desert_RecipesUITestsLaunchTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,16 +84,10 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		8455D14F2C3DDA1F0069BDF9 /* Core Data */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "Core Data";
-			sourceTree = "<group>";
-		};
 		8455D17A2C43424E0069BDF9 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				846B67992C459D2E00AAA0D9 /* MenuItemCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -106,8 +96,6 @@
 			isa = PBXGroup;
 			children = (
 				8473AE222C3D970C00ABD2D7 /* Fetch_Challenge_Desert-Recipes */,
-				8473AE3C2C3D970E00ABD2D7 /* Fetch_Challenge_Desert-RecipesTests */,
-				8473AE462C3D970E00ABD2D7 /* Fetch_Challenge_Desert-RecipesUITests */,
 				8473AE212C3D970C00ABD2D7 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -136,26 +124,8 @@
 				8473AE2F2C3D970E00ABD2D7 /* Assets.xcassets */,
 				8473AE312C3D970E00ABD2D7 /* LaunchScreen.storyboard */,
 				8473AE342C3D970E00ABD2D7 /* Info.plist */,
-				8473AE2C2C3D970C00ABD2D7 /* Fetch_Challenge_Desert_Recipes.xcdatamodeld */,
 			);
 			path = "Fetch_Challenge_Desert-Recipes";
-			sourceTree = "<group>";
-		};
-		8473AE3C2C3D970E00ABD2D7 /* Fetch_Challenge_Desert-RecipesTests */ = {
-			isa = PBXGroup;
-			children = (
-				8473AE3D2C3D970E00ABD2D7 /* Fetch_Challenge_Desert_RecipesTests.swift */,
-			);
-			path = "Fetch_Challenge_Desert-RecipesTests";
-			sourceTree = "<group>";
-		};
-		8473AE462C3D970E00ABD2D7 /* Fetch_Challenge_Desert-RecipesUITests */ = {
-			isa = PBXGroup;
-			children = (
-				8473AE472C3D970E00ABD2D7 /* Fetch_Challenge_Desert_RecipesUITests.swift */,
-				8473AE492C3D970E00ABD2D7 /* Fetch_Challenge_Desert_RecipesUITestsLaunchTests.swift */,
-			);
-			path = "Fetch_Challenge_Desert-RecipesUITests";
 			sourceTree = "<group>";
 		};
 		8473AE562C3D974300ABD2D7 /* Network Manager */ = {
@@ -178,8 +148,8 @@
 		8473AE582C3D976C00ABD2D7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				8455D14F2C3DDA1F0069BDF9 /* Core Data */,
 				8455D1502C3DDA720069BDF9 /* MealData.swift */,
+				846B679B2C459E3D00AAA0D9 /* MenuItemModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -327,11 +297,12 @@
 				8455D1512C3DDA720069BDF9 /* MealData.swift in Sources */,
 				8455D1532C3F64B70069BDF9 /* NetworkManager.swift in Sources */,
 				8473AE282C3D970C00ABD2D7 /* MenuVC.swift in Sources */,
+				846B679A2C459D2E00AAA0D9 /* MenuItemCell.swift in Sources */,
+				846B679C2C459E3D00AAA0D9 /* MenuItemModel.swift in Sources */,
 				8455D17E2C4343F20069BDF9 /* MenuViewModel.swift in Sources */,
 				8455D1802C4348AE0069BDF9 /* DetailViewModel.swift in Sources */,
 				8473AE242C3D970C00ABD2D7 /* AppDelegate.swift in Sources */,
 				8473AE262C3D970C00ABD2D7 /* SceneDelegate.swift in Sources */,
-				8473AE2E2C3D970C00ABD2D7 /* Fetch_Challenge_Desert_Recipes.xcdatamodeld in Sources */,
 				8455D1792C4335810069BDF9 /* DetailVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -340,7 +311,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8473AE3E2C3D970E00ABD2D7 /* Fetch_Challenge_Desert_RecipesTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -348,8 +318,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8473AE4A2C3D970E00ABD2D7 /* Fetch_Challenge_Desert_RecipesUITestsLaunchTests.swift in Sources */,
-				8473AE482C3D970E00ABD2D7 /* Fetch_Challenge_Desert_RecipesUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -679,19 +647,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		8473AE2C2C3D970C00ABD2D7 /* Fetch_Challenge_Desert_Recipes.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				8473AE2D2C3D970C00ABD2D7 /* Fetch_Challenge_Desert_Recipes.xcdatamodel */,
-			);
-			currentVersion = 8473AE2D2C3D970C00ABD2D7 /* Fetch_Challenge_Desert_Recipes.xcdatamodel */;
-			path = Fetch_Challenge_Desert_Recipes.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 8473AE182C3D970C00ABD2D7 /* Project object */;
 }

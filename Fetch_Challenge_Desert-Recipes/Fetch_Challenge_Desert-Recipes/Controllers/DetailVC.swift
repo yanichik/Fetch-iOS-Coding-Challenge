@@ -2,15 +2,14 @@
 //  DetailVC.swift
 //  Fetch_Challenge_Desert-Recipes
 //
-//  Created by admin on 7/13/24.
+//  Created by Yan Brunshteyn on 7/13/24.
 //
 
 import UIKit
 
 class DetailVC: UIViewController {
-
+    // IBOutlets
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var instructionsLabel: UILabel!
     @IBOutlet weak var instructionsScrollView: UIScrollView!
     
     var viewModel: DetailViewModel?
@@ -35,71 +34,70 @@ class DetailVC: UIViewController {
         }
     }
     
-//    func configureNavbar() {
-//        guard let mealName = viewModel?.meal?.strMeal else { return }
-//        let titleLabel = UILabel()
-//        titleLabel.numberOfLines = 2
-//        titleLabel.textAlignment = .center
-//        titleLabel.font = .systemFont(ofSize: 17)
-//        titleLabel.text = mealName + "\nInstructions"
-//        navigationItem.titleView = titleLabel
-//    }
-    
     func configureNavbar() {
         navigationItem.title = viewModel?.meal?.strMeal
     }
     
-    func configureInstructionsLabels() {
+    func configureContent() {
         let instructionsTitleLabel = UILabel()
         instructionsTitleLabel.translatesAutoresizingMaskIntoConstraints = false
         instructionsTitleLabel.text = "Instructions:"
+        instructionsTitleLabel.numberOfLines = 1
         instructionsTitleLabel.textAlignment = .left
         instructionsTitleLabel.font = .systemFont(ofSize: 20, weight: .semibold)
-//        view.addSubview(instructionsTitleLabel)
-//        NSLayoutConstraint.activate([
-//            instructionsTitleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 15),
-//            instructionsTitleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15),
-//        ])
-        
-        instructionsScrollView.addSubview(instructionsTitleLabel)
+        instructionsTitleLabel.layer.zPosition = 1000
+        view.addSubview(instructionsTitleLabel)
         NSLayoutConstraint.activate([
-            instructionsTitleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 15),
+            instructionsTitleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 5),
             instructionsTitleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15),
+            instructionsTitleLabel.widthAnchor.constraint(equalToConstant: view.frame.size.width),
         ])
         
-        instructionsScrollView.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(instructionsScrollView)
-        
-        
+        let ingredientsMeasurementsTitleLabel = UILabel()
+        ingredientsMeasurementsTitleLabel.translatesAutoresizingMaskIntoConstraints = false
+        ingredientsMeasurementsTitleLabel.text = "Ingredients/Measurements:"
+        ingredientsMeasurementsTitleLabel.numberOfLines = 1
+        ingredientsMeasurementsTitleLabel.textAlignment = .left
+        ingredientsMeasurementsTitleLabel.font = .systemFont(ofSize: 20, weight: .semibold)
+        view.addSubview(ingredientsMeasurementsTitleLabel)
         NSLayoutConstraint.activate([
-            instructionsScrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 55),
-            instructionsScrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15),
-            instructionsScrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15),
-            instructionsScrollView.bottomAnchor.constraint(equalTo: tableView.topAnchor, constant: -15)
+            ingredientsMeasurementsTitleLabel.bottomAnchor.constraint(equalTo: tableView.topAnchor, constant: -5),
+            ingredientsMeasurementsTitleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15)
         ])
         
+        // Instructions embedded inside scroll view
+        instructionsScrollView.translatesAutoresizingMaskIntoConstraints = false
+        instructionsScrollView.showsVerticalScrollIndicator = true
+        instructionsScrollView.isScrollEnabled = true
+        instructionsScrollView.setContentHuggingPriority(.defaultLow, for: .vertical)
+        NSLayoutConstraint.activate([
+            instructionsScrollView.topAnchor.constraint(equalTo: instructionsTitleLabel.bottomAnchor, constant: 5),
+            instructionsScrollView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            instructionsScrollView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            instructionsScrollView.bottomAnchor.constraint(equalTo: ingredientsMeasurementsTitleLabel.topAnchor, constant: -5)
+        ])
+        
+        let instructionsLabel = UILabel()
         instructionsLabel.translatesAutoresizingMaskIntoConstraints = false
         instructionsLabel.numberOfLines = 0
         instructionsLabel.text = viewModel?.meal?.strInstructions
+        instructionsLabel.textAlignment = .justified
         instructionsScrollView.addSubview(instructionsLabel)
         NSLayoutConstraint.activate([
-//            instructionsLabel.leadingAnchor.constraint(equalTo: instructionsScrollView.leadingAnchor),
             instructionsLabel.topAnchor.constraint(equalTo: instructionsScrollView.topAnchor),
-//            instructionsLabel.trailingAnchor.constraint(equalTo: instructionsScrollView.trailingAnchor),
-            instructionsLabel.bottomAnchor.constraint(equalTo: instructionsScrollView.bottomAnchor),
-            instructionsLabel.widthAnchor.constraint(equalTo: instructionsScrollView.widthAnchor)
+            instructionsLabel.widthAnchor.constraint(equalTo: instructionsScrollView.widthAnchor, constant: -30),
+            instructionsLabel.centerXAnchor.constraint(equalTo: instructionsScrollView.centerXAnchor),
+            instructionsLabel.bottomAnchor.constraint(equalTo: instructionsScrollView.bottomAnchor)
         ])
-        
-//        instructionsScrollView.contentSize = instructionsLabel.intrinsicContentSize
     }
     
+    // Binds viewModel to VC 
     func bindViewModel() {
         viewModel?.onMealUpdated = { [weak self] in
             DispatchQueue.main.async {
                 self?.configureNavbar()
-                self?.configureInstructionsLabels()
+                self?.configureContent()
                 self?.tableView.reloadData()
-//                self?.
             }
         }
         

@@ -20,7 +20,7 @@
                                 <rect key="frame" x="0.0" y="103" width="393" height="715"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="menuCell" id="oVe-4V-0D1">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MenuItemCell" id="oVe-4V-0D1">
                                         <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="oVe-4V-0D1" id="h2P-2p-65K">
@@ -58,77 +58,37 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="aFC-RG-UVv">
-                                <rect key="frame" x="15" y="468" width="363" height="350"/>
+                                <rect key="frame" x="0.0" y="518" width="393" height="300"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="350" id="gbT-Sc-THd"/>
+                                    <constraint firstAttribute="height" constant="300" id="gbT-Sc-THd"/>
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="itemCell" id="LaJ-4f-TtU">
-                                        <rect key="frame" x="0.0" y="50" width="363" height="43.666667938232422"/>
+                                        <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="LaJ-4f-TtU" id="ecZ-5H-1aZ">
-                                            <rect key="frame" x="0.0" y="0.0" width="363" height="43.666667938232422"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="phI-ua-FlF">
-                                <rect key="frame" x="0.0" y="59" width="393" height="409"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Gv-KS-PlJ" userLabel="Instructions">
-                                        <rect key="frame" x="0.0" y="146" width="393" height="724.33333333333337"/>
-                                        <mutableString key="text">Preheat the oven to 200C/180C Fan/Gas 6.
-Put the biscuits in a large re-sealable freezer bag and bash with a rolling pin into fine crumbs.
-Melt the butter in a small pan, then add the biscuit crumbs and stir until coated with butter.
-Tip into the tart tin and, using the back of a spoon, press over the base and sides of the tin to give an even layer.
-Chill in the fridge while you make the filling.
-Cream together the butter and sugar until light and fluffy.
-You can do this in a food processor if you have one.
-Process for 2-3 minutes.
-Mix in the eggs, then add the ground almonds and almond extract and blend until well combined.
-Peel the apples, and cut thin slices of apple.
-Do this at the last minute to prevent the apple going brown.
-Arrange the slices over the biscuit base.
-Spread the frangipane filling evenly on top.
-Level the surface and sprinkle with the flaked almonds.
-Bake for 20-25 minutes until golden-brown and set.
-Remove from the oven and leave to cool for 15 minutes.
-Remove the sides of the tin.
-An easy way to do this is to stand the tin on a can of beans and push down gently on the edges of the tin.
-Transfer the tart, with the tin base attached, to a serving plate.
-Serve warm with cream, crème fraiche or ice cream.</mutableString>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="0Gv-KS-PlJ" secondAttribute="bottom" id="98g-XT-6jo"/>
-                                    <constraint firstItem="2bf-cv-6vf" firstAttribute="trailing" secondItem="0Gv-KS-PlJ" secondAttribute="trailing" id="B5d-P2-d8O"/>
-                                    <constraint firstItem="0Gv-KS-PlJ" firstAttribute="leading" secondItem="2bf-cv-6vf" secondAttribute="leading" id="Sei-1H-OXS"/>
-                                    <constraint firstItem="0Gv-KS-PlJ" firstAttribute="top" secondItem="2bf-cv-6vf" secondAttribute="top" id="V5L-p9-RtB"/>
-                                </constraints>
-                                <viewLayoutGuide key="contentLayoutGuide" id="QU5-uj-Tbi"/>
-                                <viewLayoutGuide key="frameLayoutGuide" id="2bf-cv-6vf"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="phI-ua-FlF">
+                                <rect key="frame" x="0.0" y="59" width="393" height="459"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="xDF-AU-KtV"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="xDF-AU-KtV" firstAttribute="trailing" secondItem="phI-ua-FlF" secondAttribute="trailing" id="BJ9-aa-FZI"/>
-                            <constraint firstItem="phI-ua-FlF" firstAttribute="leading" secondItem="xDF-AU-KtV" secondAttribute="leading" id="L3L-zv-Vqw"/>
-                            <constraint firstItem="phI-ua-FlF" firstAttribute="top" secondItem="xDF-AU-KtV" secondAttribute="top" id="LcA-AC-hJy"/>
-                            <constraint firstItem="aFC-RG-UVv" firstAttribute="top" secondItem="phI-ua-FlF" secondAttribute="bottom" id="Pj5-SS-UL1"/>
-                            <constraint firstItem="xDF-AU-KtV" firstAttribute="trailing" secondItem="aFC-RG-UVv" secondAttribute="trailing" constant="15" id="lzI-vX-BxW"/>
-                            <constraint firstItem="aFC-RG-UVv" firstAttribute="centerX" secondItem="1JT-6s-YPT" secondAttribute="centerX" id="mIg-Ho-040"/>
-                            <constraint firstItem="xDF-AU-KtV" firstAttribute="bottom" secondItem="aFC-RG-UVv" secondAttribute="bottom" id="pl5-2N-ERs"/>
+                            <constraint firstItem="aFC-RG-UVv" firstAttribute="centerX" secondItem="1JT-6s-YPT" secondAttribute="centerX" id="8GX-Tl-5Tn"/>
+                            <constraint firstItem="aFC-RG-UVv" firstAttribute="bottom" secondItem="xDF-AU-KtV" secondAttribute="bottom" id="Ls8-jQ-3Tk"/>
+                            <constraint firstItem="aFC-RG-UVv" firstAttribute="leading" secondItem="xDF-AU-KtV" secondAttribute="leading" id="NDr-IZ-Eev"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="nPY-QD-XpG"/>
                     <connections>
-                        <outlet property="instructionsLabel" destination="0Gv-KS-PlJ" id="iQO-ba-7sK"/>
                         <outlet property="instructionsScrollView" destination="phI-ua-FlF" id="eAY-i0-TF1"/>
                         <outlet property="tableView" destination="aFC-RG-UVv" id="wty-3E-X6q"/>
                     </connections>

@@ -2,7 +2,7 @@
 //  MenuViewModel.swift
 //  Fetch_Challenge_Desert-Recipes
 //
-//  Created by admin on 7/13/24.
+//  Created by Yan Brunshteyn on 7/13/24.
 //
 
 import Foundation
@@ -11,6 +11,8 @@ class MenuViewModel {
     // Callbacks for notifying the VC about updates
     var onMealsListUpdated: (() -> Void)?
     var onErrorMessageUpdated: ((String) -> Void)?
+    
+    var heightForRow: CGFloat = 60
 
     var mealsList: [MenuMeals] = [] {
         didSet {

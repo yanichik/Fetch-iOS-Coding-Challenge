@@ -11,7 +11,6 @@ class MenuVC: UIViewController {
     // IBOutlets
     @IBOutlet weak var tableView: UITableView!
     
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     var viewModel = MenuViewModel()
     var selectedIndexPath: IndexPath?
     
@@ -27,6 +26,7 @@ class MenuVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        // Deselects row when navigating back to MenuVC
         if let selectedIndexPath = selectedIndexPath {
             tableView.deselectRow(at: selectedIndexPath, animated: true)
         }
@@ -39,6 +39,7 @@ class MenuVC: UIViewController {
     func setupTableView(){
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.register(MenuItemCell.self, forCellReuseIdentifier: "MenuItemCell")
     }
     
     func bindViewModel() {
@@ -66,19 +67,25 @@ extension MenuVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let mealName = viewModel.mealsList[indexPath.row].strMeal
-        let cell = tableView.dequeueReusableCell(withIdentifier: "menuCell", for: indexPath)
-        cell.textLabel?.text = mealName
-        //        cell.contentView = ItemRowView
+        let mealThumb = viewModel.mealsList[indexPath.row].strMealThumb
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "MenuItemCell", for: indexPath) as? MenuItemCell {
+            Task {
+                await cell.configure(with: MenuItem(imageName: mealThumb, title: mealName))
+            }
+            return cell
+        }
         selectedIndexPath = indexPath
-        return cell
+        return UITableViewCell()
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        viewModel.heightForRow
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedIndexPath = tableView.indexPathForSelectedRow
         let detailViewModel = DetailViewModel()
         detailViewModel.mealId = viewModel.mealsList[indexPath.row].idMeal
-        detailViewModel.mealThumb = viewModel.mealsList[indexPath.row].strMealThumb
-        //        let detailVC = DetailVC(with: detailViewModel)
         guard let detailVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DetailVC")
                 as? DetailVC else { return }
         detailVC.viewModel = detailViewModel

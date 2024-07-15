@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 class NetworkManager {
     static let shared = NetworkManager()
@@ -82,6 +83,18 @@ class NetworkManager {
         case .failure(let error):
             return .failure(error)
         }
+    }
+    
+    func loadImage(from urlString: String) async throws -> UIImage? {
+        guard let url = URL(string: urlString) else {
+            throw FetchError.invalidURL
+        }
+        
+        let (data, _) = try await URLSession.shared.data(from: url)
+        guard let image = UIImage(data: data) else {
+            throw FetchError.invalidData(reason: "Image data is corrupted.")
+        }
+        return image
     }
     
     enum FetchError: Error {
